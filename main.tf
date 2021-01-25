@@ -34,25 +34,20 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_security_group" "security_group_jenkins_hermosilla" {
-  name = "security_group_jenkins_hermosilla"
-  description = "global rule"
+resource "aws_security_group" "security_group" {
+  name = "instance_terraform_hermosilla"
 
   ingress {
+    description = "SSH Instance"
     from_port = 22
     to_port = 22
     protocol = "tcp"
   }
 
   ingress {
+    description = "Web Server Instance"
     from_port = 80
     to_port = 80
-    protocol = "tcp"
-  }
-
-  ingress {
-    from_port = 8080
-    to_port = 8080
     protocol = "tcp"
   }
 
