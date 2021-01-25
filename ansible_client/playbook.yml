@@ -1,0 +1,8 @@
+- name: configure instance
+  hosts: web
+  gather_facts: true
+  become: true
+  roles:
+    - web
+
+  

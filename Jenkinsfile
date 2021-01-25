@@ -17,24 +17,9 @@ pipeline {
         AWS_REGION = "eu-west-3"
     }
     stages {
-        stage('Init Terraform directory') {
+        stage('Launch Playbook') {
             steps {
-                sh 'terraform init -backend-config=backend.tfvars'
-            }
-        }
-        stage('Plan terraform code') {
-            steps {
-                sh 'terraform plan'
-            }
-        }
-        stage('Apply terraform code') {
-            steps {
-                sh 'terraform apply -auto-approve'
-            }
-        }
-	stage('Output terraform code') {
-            steps {
-                sh 'terraform output'
+                ansible-playbook -i ansible_client/playbook.yml
 	    }
         }
     }
