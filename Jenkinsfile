@@ -31,6 +31,7 @@ pipeline {
             steps {
                 sh 'terraform apply -auto-approve'
             }
+        }
 	stage('Output terraform code') {
             steps {
                 sh 'terraform output'
