@@ -34,6 +34,7 @@ pipeline {
 	stage('Output terraform code') {
             steps {
                 sh 'terraform output'
+	    }
         }
     }
 }
