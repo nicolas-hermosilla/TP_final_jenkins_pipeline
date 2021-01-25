@@ -1,3 +1,7 @@
+terraform{
+  backend "s3" {}
+}
+
 provider "aws" {
   region     = var.region
 }
@@ -22,6 +26,7 @@ resource "aws_instance" "web" {
   key_name      = "tp_dev_ynov"
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
+  count         = var.create_instance ? var.instance_number : 0
 
 
   tags = {
