@@ -34,7 +34,7 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_security_group" "security_group" {
+resource "aws_security_group" "security_group_hermosilla" {
   name = "instance_terraform_hermosilla"
 
   ingress {
